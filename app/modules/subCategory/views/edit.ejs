@@ -1,0 +1,56 @@
+<% layout(layout_directory+'/mainLayout') -%>
+
+  <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-subheader__main">
+      <h3 class="kt-subheader__title">
+        <%= page_title %>
+      </h3>
+      <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+    </div>
+  </div>
+ 
+  <div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="kt-portlet">
+          <form class="kt-form kt-form--label-right" id="frmSubCategory" action="<%= generateUrl('subCategory.update') %>"
+            method="POST" enctype='multipart/form-data'>
+        
+            <div class="kt-portlet__body">
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <label>Category : </label>
+                  <select name="categoryType" id="categoryType"class="form-control required" >
+                    <option value="" selected disabled>Choose a category Type</option>
+                    <% response.map(data=> {%>
+                      <!-- <option value="<%= data._id%>" <%= JSON.stringify(data._id)==JSON.stringify(dataAll.categoryType)?'selected':''%>><%= data.category%></option> -->
+                      <option value="<%= data._id%>" <% if( JSON.stringify(data._id) ==JSON.stringify(dataAll.categoryType)){ %> selected <% } %>><%= data.category%></option>
+                      <% })%>
+                  </select>
+                </div>
+                <div class="col-lg-12">
+                  <label>SubCategory :</label>
+                  <input type="text" name="subCategory" id="subCategory" value="<%= dataAll.subCategory%>"class="form-control required" 
+                    placeholder="Enter Sub-Category Name">
+                </div>
+              </div>
+             
+             
+          <input type="hidden" name="id" value="<%= dataAll._id%>">
+            <div class="kt-portlet__foot">
+              <div class="kt-form__actions">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <button type="submit"class="btn btn-primary">Save</button>
+                    <a href="<%= generateUrl('subCategory.list') %>" class="btn btn-secondary">Cancel</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 

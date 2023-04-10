@@ -1,0 +1,51 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0," />
+	<meta name="x-apple-disable-message-reformatting" />
+	<title>Order Template</title>
+	<style>
+		table tr td {
+			border: 1px solid #d0d0d0;
+			padding: 5px 30px !important;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+	<table cellpadding="0" cellspacing="0"
+		style="padding:25px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; max-width:100%; margin: 15px auto;box-sizing: border-box;font-weight: 400; ">
+
+		<tr>
+			<td style="padding:0px 0px 5px;color: #000000;font-size: 18px; line-height: 22px;">
+				S/No
+			</td>
+			<td style="padding:0px 0px 5px;color: #000000;font-size: 18px; line-height: 22px;">
+				Meal Name
+			</td>
+			<td style="padding:0px 0px 5px;color: #000000;font-size: 18px; line-height: 22px;">
+				Meal Quantity
+			</td>
+		</tr>
+		<% var i = 1 %>
+		<% data.map(function(meal){ %>
+		<tr>
+			<td style="padding:0px 0px 5px;color: #000000;font-size: 18px; line-height: 22px;">
+				<%= i %>
+			</td>
+			<td style="padding:0px 0px 5px;color: #000000;font-size: 18px; line-height: 22px;">
+				<%= meal.title %>
+			</td>
+			<td style="padding:0px 0px 5px;color: #000000;font-size: 18px; line-height: 22px;">
+				<%= meal.count %>
+			</td>
+		</tr>
+		<% i=i+1; }) %>
+
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<script>
+  
+    $(document).ready(function(){
+    $("#categoryType").on("change", function(){
+     $('#subCategory').html( `<option value="" selected disabled>Choose a sub-category Type</option>`)
+    var ide=$('#categoryType').val();
+    $.ajax({
+      url:`${location.protocol}//${window.location.host}/product/sub`,
+      type:'get',
+      data:{id:ide},
+      cache:false,
+      success:function(result){
+      
+        $.each(result.response,function(k,val){
+            $('#subCategory').append(`<option value=${val._id}>${val.subCategory}</option>`)
+          })
+      
+      }
+    })
+    
+    });
+    });
+    
+    
+    </script>
